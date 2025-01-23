@@ -1,0 +1,21 @@
+Wat doet een array?
+Een array slaat meerdere waarden op onder één naam, zodat je toegang kunt krijgen tot deze waarden 
+met behulp van een index of een sleutel. 
+------------------------------------------------------------------------------
+Je kunt arrays op verschillende manieren maken:
+
+Met de array() functie:
+$dieren = array("Kat", "Hond", "Vis");
+
+Met korte array-syntax:
+$dieren = ["Kat", "Hond", "Vis"];
+----------------------------------------------------------------------------------
+Indexen zijn nummers die automatisch worden toegewezen aan elementen in een array.
+Ze beginnen bij 0.
+
+Een sleutel is een unieke naam die je zelf kunt toewijzen aan een waarde in een array.
+Arrays met sleutels worden associatieve arrays genoemd.
+---------------------------------------------------------------------------------------
+Een array slaat meerdere waarden op in één variabele.
+Waarom handig?
+Je kunt lijsten van gegevens organiseren, zoals namen of nummers.
