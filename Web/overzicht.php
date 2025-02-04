@@ -80,6 +80,11 @@ require_once "connection.php";
                         <td>" . htmlspecialchars($row['email']) . "</td>
                         <td>" . htmlspecialchars($row['geboortedatum']) . "</td>
                         <td>" . htmlspecialchars($row['telefoonnummer']) . "</td>
+                        <td>
+                            <a href='create.php?id=" . htmlspecialchars($row['idUsers']) . "'>Create</a>
+                            <a href='update.php?id=" . htmlspecialchars($row['idUsers']) . "'>Update</a>
+                            <a href='delete.php?id=" . htmlspecialchars($row['idUsers']) . "'>Delete</a>
+                        </td> 
                       </tr>";
       }
     }
