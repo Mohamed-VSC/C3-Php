@@ -42,6 +42,12 @@ require_once "connection.php";
       text-decoration: none;
     }
   </style>
+  <script>
+    window.addEventListener("beforeunload", function() {
+      navigator.sendBeacon("logout.php");
+    });
+  </script>
+
 </head>
 
 <body>
@@ -69,6 +75,15 @@ require_once "connection.php";
 
     $stmt->execute();
     $result = $stmt->get_result();
+
+    if (isset($_GET['message'])) {
+      $message = htmlspecialchars($_GET['message']);
+      if ($message === "updateSuccess") {
+        echo '<p class="success">User updated successfully!</p>';
+      } elseif ($message === "deleteSuccess") {
+        echo '<p class="success">User deleted successfully!</p>';
+      }
+    }
 
     if ($result->num_rows === 0) {
       echo "<tr><td colspan='6'>No users found.</td></tr>";

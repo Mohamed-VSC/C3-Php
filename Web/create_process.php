@@ -11,12 +11,6 @@ $email = $_POST['email'] ?? null;
 $geboortedatum = $_POST['geboortedatum'] ?? null;
 $telefoonnummer = $_POST['telefoonnummer'] ?? null;
 
-
-if (empty($naam) || empty($email) || empty($geboortedatum) || empty($telefoonnummer)) {
-    header("Location: create.php?error=emptyfields");
-    exit();
-}
-
 // New user
 $stmt = $conn->prepare("INSERT INTO Users (naam, email, geboortedatum, telefoonnummer) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $naam, $email, $geboortedatum, $telefoonnummer);

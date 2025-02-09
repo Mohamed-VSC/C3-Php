@@ -8,7 +8,6 @@ if (!$id) {
     die("Error: No user ID provided.");
 }
 
-
 $stmt = $conn->prepare("SELECT * FROM Users WHERE idUsers = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -63,6 +62,7 @@ $conn->close();
             padding: 20px;
         }
     </style>
+
 </head>
 
 
