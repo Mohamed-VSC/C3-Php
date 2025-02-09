@@ -1,4 +1,5 @@
 <?php
+
 $servername = "mysql";
 $username = "root";
 $password = "password";

@@ -18,8 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssssi", $naam, $email, $geboortedatum, $telefoonnummer, $id);
 
     if ($stmt->execute()) {
-        header("Location: overzicht.php");
-        echo "User updated successfully";
+        header("Location: overzicht.php?message=updateSuccess");
         exit();
     } else {
         echo "Error: " . $conn->error;
