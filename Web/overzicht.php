@@ -43,10 +43,29 @@ require_once "connection.php";
     }
   </style>
   <script>
-    window.addEventListener("beforeunload", function() {
-      navigator.sendBeacon("logout.php");
+    let isNavigatingInternally = false;
+
+    // Detecteert wanneer de gebruiker op een interne link klikt
+    document.addEventListener("click", function(event) {
+      let target = event.target.closest("a");
+      if (target && target.href.startsWith(window.location.origin)) {
+        isNavigatingInternally = true;
+      }
+    });
+
+    // Detecteert wanneer een formulier wordt verzonden
+    document.addEventListener("submit", function() {
+      isNavigatingInternally = true;
+    });
+
+    // Alleen uitloggen als de gebruiker de website verlaat
+    window.addEventListener("beforeunload", function(event) {
+      if (!isNavigatingInternally) {
+        navigator.sendBeacon("logout.php");
+      }
     });
   </script>
+
 
 </head>
 
